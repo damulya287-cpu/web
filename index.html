@@ -3,48 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amulya D - My Portfolio</title>
+    <title>Amulya D | AI Tech Portfolio</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #fff0f7, #ffd6ec, #f8b5d8);
+            color: #4a1740;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         header {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
             padding: 20px 8%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(180, 50, 120, 0.15);
         }
 
-        header h1 {
-            color: #38bdf8;
+        .logo {
             font-size: 28px;
+            font-weight: bold;
+            color: #e00087;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
+            color: #6b2058;
             margin-left: 25px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #38bdf8;
+            color: #ff1493;
         }
 
         .hero {
@@ -53,103 +57,126 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .profile-circle {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #38bdf8, #a855f7);
             margin: 0 auto 25px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff1493, #ff8ac5);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             font-size: 55px;
+            color: white;
             font-weight: bold;
-            box-shadow: 0 0 35px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 35px rgba(255, 20, 147, 0.5);
+            animation: float 3s infinite ease-in-out;
         }
 
-        .hero h2 {
-            font-size: 48px;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            color: #d60079;
             margin-bottom: 10px;
         }
 
-        .hero h2 span {
-            color: #38bdf8;
+        .hero h2 {
+            font-size: 25px;
+            color: #72205d;
+            margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 20px;
-            color: #cbd5e1;
-            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .ai-text {
+            color: #ff1493;
+            font-weight: bold;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
-            background: #38bdf8;
-            color: #0f172a;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #e00087;
+            color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: bold;
+            box-shadow: 0 8px 20px rgba(224, 0, 135, 0.3);
             transition: 0.3s;
         }
 
         .btn:hover {
-            background: #a855f7;
-            color: white;
-            transform: scale(1.05);
+            background: #ff1493;
+            transform: translateY(-3px);
         }
 
         section {
-            padding: 70px 8%;
+            padding: 80px 8%;
         }
 
         .section-title {
             text-align: center;
             font-size: 35px;
+            color: #d60079;
             margin-bottom: 40px;
-            color: #38bdf8;
         }
 
         .about {
-            max-width: 900px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 35px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.55);
         }
 
-        .about p {
-            font-size: 18px;
-            color: #e2e8f0;
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(180, 50, 120, 0.15);
+            line-height: 1.8;
+            font-size: 17px;
         }
 
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 25px;
+            max-width: 1100px;
+            margin: auto;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 30px 20px;
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 22px;
             text-align: center;
+            box-shadow: 0 8px 25px rgba(180, 50, 120, 0.12);
             transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            background: rgba(56, 189, 248, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(224, 0, 135, 0.2);
         }
 
         .card .icon {
@@ -158,70 +185,146 @@
         }
 
         .card h3 {
-            color: #38bdf8;
+            color: #d60079;
             margin-bottom: 10px;
         }
 
-        .card p {
-            color: #cbd5e1;
+        .skills {
+            background: #fff5fa;
+        }
+
+        .skill {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .bar {
+            width: 100%;
+            height: 13px;
+            background: #f3c4dd;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff1493, #d60079);
+            border-radius: 20px;
+        }
+
+        .math {
+            width: 95%;
+        }
+
+        .study {
+            width: 90%;
+        }
+
+        .dance {
+            width: 88%;
+        }
+
+        .talk {
+            width: 90%;
+        }
+
+        .play {
+            width: 85%;
+        }
+
+        .food {
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        .food-card {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 20px;
+            line-height: 2.2;
         }
 
         .goal {
-            max-width: 850px;
-            margin: auto;
             text-align: center;
-            background: linear-gradient(
-                135deg,
-                rgba(56, 189, 248, 0.15),
-                rgba(168, 85, 247, 0.15)
-            );
-            padding: 45px;
-            border-radius: 25px;
+            background: linear-gradient(135deg, #e00087, #ff69b4);
+            color: white;
         }
 
-        .goal h3 {
-            font-size: 30px;
-            color: #a855f7;
-            margin-bottom: 15px;
+        .goal .section-title {
+            color: white;
         }
 
-        .goal p {
-            font-size: 19px;
-            color: #e2e8f0;
+        .goal-text {
+            max-width: 800px;
+            margin: auto;
+            font-size: 21px;
+            line-height: 1.8;
         }
 
         footer {
-            background: #020617;
             text-align: center;
             padding: 25px;
-            color: #94a3b8;
+            background: #4a1740;
+            color: white;
         }
 
-        footer span {
-            color: #38bdf8;
+        /* Ammu Pop-up */
+        #ammu {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #ff1493, #ff8ac5);
+            color: white;
+            padding: 25px 50px;
+            border-radius: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 0 50px rgba(255, 20, 147, 0.6);
+            pointer-events: none;
+            transition: transform 0.2s ease;
+        }
+
+        #ammu.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .keyboard-info {
+            text-align: center;
+            margin-top: 20px;
+            color: #8a426f;
+            font-style: italic;
         }
 
         @media (max-width: 700px) {
             header {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
             }
 
             nav a {
-                margin: 0 8px;
+                margin: 0 7px;
                 font-size: 14px;
             }
 
-            .hero h2 {
-                font-size: 36px;
+            .hero h1 {
+                font-size: 40px;
             }
 
-            .hero p {
-                font-size: 17px;
+            .hero h2 {
+                font-size: 20px;
             }
 
             section {
-                padding: 50px 5%;
+                padding: 60px 5%;
             }
         }
     </style>
@@ -230,7 +333,7 @@
 <body>
 
     <header>
-        <h1>Amulya D</h1>
+        <div class="logo">💗 Ammu</div>
 
         <nav>
             <a href="#home">Home</a>
@@ -241,187 +344,181 @@
         </nav>
     </header>
 
+    <div id="ammu">💗 Ammu Ammu 💗</div>
 
-    <!-- Home Section -->
     <section class="hero" id="home">
         <div class="hero-content">
 
-            <div class="profile-circle">
-                AD
-            </div>
+            <div class="profile-circle">AD</div>
 
-            <h2>Hello, I'm <span>Amulya D</span></h2>
+            <h1>Hi, I'm Amulya D 💗</h1>
+
+            <h2>
+                CSE Student | Mathematics Lover | 
+                <span class="ai-text">AI Tech Enthusiast</span>
+            </h2>
 
             <p>
-                BE CSE Student | Maths Lover | Dancer | Player | Positive Thinker
+                Welcome to my pink world! 🌸
+                I am a passionate and hardworking student who loves
+                mathematics, technology, dancing, playing and communicating
+                with people.
             </p>
 
-            <a href="#about" class="btn">Know More About Me</a>
+            <a href="#about" class="btn">Explore My World ✨</a>
+
+            <p class="keyboard-info">
+                ⌨️ Press any keyboard key to meet Ammu!
+            </p>
 
         </div>
     </section>
 
+    <section class="about" id="about">
+        <h2 class="section-title">🌷 About Me</h2>
 
-    <!-- About Section -->
-    <section id="about">
-
-        <h2 class="section-title">About Me</h2>
-
-        <div class="about">
-
+        <div class="about-box">
             <p>
-                My name is <strong>Amulya D</strong>. I am currently pursuing
-                my Bachelor of Engineering (BE) in Computer Science and
-                Engineering (CSE) at JITD.
+                Hello! My name is <strong>Amulya D</strong>.
+                I am pursuing my <strong>BE in Computer Science and Engineering
+                (CSE) at JITD</strong>.
             </p>
 
             <br>
 
             <p>
-                I am very good at Mathematics and I enjoy learning new things.
-                I am good at studying and I always try to keep a healthy and
-                positive mindset.
+                I am very good at <strong>Mathematics</strong> and I enjoy
+                learning new things. I am also interested in
+                <strong>AI and modern technology</strong>.
             </p>
 
             <br>
 
             <p>
-                I enjoy dancing, playing games and communicating with people.
-                In my free time, I like watching movies on my phone.
+                Apart from studies, I enjoy dancing, playing, talking with
+                others and watching movies on my phone. I believe in keeping
+                a positive and healthy mind.
             </p>
-
         </div>
-
     </section>
 
-
-    <!-- Skills Section -->
     <section id="skills">
+        <h2 class="section-title">💫 My Skills</h2>
 
-        <h2 class="section-title">My Skills</h2>
+        <div class="skills">
 
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">🧮</div>
-                <h3>Mathematics</h3>
-                <p>
-                    I am very good at Mathematics and enjoy solving problems.
-                </p>
+            <div class="skill">
+                <div class="skill-name">
+                    <span>📐 Mathematics</span>
+                    <span>95%</span>
+                </div>
+                <div class="bar">
+                    <div class="fill math"></div>
+                </div>
             </div>
 
-            <div class="card">
-                <div class="icon">📚</div>
-                <h3>Studying</h3>
-                <p>
-                    I am dedicated to my studies and always try to improve
-                    my knowledge.
-                </p>
+            <div class="skill">
+                <div class="skill-name">
+                    <span>📚 Studying</span>
+                    <span>90%</span>
+                </div>
+                <div class="bar">
+                    <div class="fill study"></div>
+                </div>
             </div>
 
-            <div class="card">
-                <div class="icon">💃</div>
-                <h3>Dancing</h3>
-                <p>
-                    Dancing is one of my favorite activities and I enjoy
-                    performing.
-                </p>
+            <div class="skill">
+                <div class="skill-name">
+                    <span>💃 Dancing</span>
+                    <span>88%</span>
+                </div>
+                <div class="bar">
+                    <div class="fill dance"></div>
+                </div>
             </div>
 
-            <div class="card">
-                <div class="icon">🏃</div>
-                <h3>Playing</h3>
-                <p>
-                    I enjoy playing games and staying active.
-                </p>
+            <div class="skill">
+                <div class="skill-name">
+                    <span>🗣️ Communication</span>
+                    <span>90%</span>
+                </div>
+                <div class="bar">
+                    <div class="fill talk"></div>
+                </div>
             </div>
 
-            <div class="card">
-                <div class="icon">🗣️</div>
-                <h3>Communication</h3>
-                <p>
-                    I am confident in talking and communicating with people.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">💻</div>
-                <h3>CSE</h3>
-                <p>
-                    I am pursuing BE in Computer Science and Engineering.
-                </p>
+            <div class="skill">
+                <div class="skill-name">
+                    <span>🎮 Playing</span>
+                    <span>85%</span>
+                </div>
+                <div class="bar">
+                    <div class="fill play"></div>
+                </div>
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- Hobbies Section -->
-    <section id="hobbies">
-
-        <h2 class="section-title">My Favorites</h2>
+    <section id="hobbies" class="food">
+        <h2 class="section-title">🌸 My Favorites</h2>
 
         <div class="cards">
 
             <div class="card">
                 <div class="icon">🍗</div>
-                <h3>Chicken</h3>
-                <p>Chicken is one of my favorite foods.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🍚</div>
-                <h3>Biryani</h3>
-                <p>I love eating delicious biryani.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🥗</div>
-                <h3>Panipuri</h3>
-                <p>Panipuri is another food I really enjoy.</p>
+                <h3>Food</h3>
+                <p>Biryani, Pani Puri & Chicken</p>
             </div>
 
             <div class="card">
                 <div class="icon">🎬</div>
-                <h3>Movies</h3>
-                <p>I like watching movies on my phone in my free time.</p>
+                <h3>Entertainment</h3>
+                <p>Watching movies on my phone</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💃</div>
+                <h3>Dancing</h3>
+                <p>I love dancing and expressing myself.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>AI & Technology</h3>
+                <p>Exploring the world of AI and technology.</p>
             </div>
 
         </div>
-
     </section>
 
+    <section class="goal" id="goal">
+        <h2 class="section-title">🌟 My Future Goal</h2>
 
-    <!-- Goal Section -->
-    <section id="goal">
-
-        <h2 class="section-title">My Goal</h2>
-
-        <div class="goal">
-
-            <h3>🌟 My Future Dream</h3>
-
-            <p>
-                My goal is to build a successful future and support my family.
-                I want to become a good and responsible person, achieve my
-                dreams through hard work, and always keep a healthy and
-                positive mindset.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            © 2026 <span>Amulya D</span> | My Personal Portfolio
+        <p class="goal-text">
+            My biggest goal is to become successful in my career and
+            support my family in the future. I want to keep learning,
+            stay strong, maintain a healthy mindset and build a bright
+            future through my knowledge, hard work and dedication. 💗
         </p>
+    </section>
 
+    <footer>
+        <p>Made with 💗 by Amulya D</p>
+        <p>BE CSE Student | AI Tech Enthusiast | Dream Big ✨</p>
     </footer>
+
+    <script>
+        document.addEventListener("keydown", function () {
+            const ammu = document.getElementById("ammu");
+
+            ammu.classList.add("show");
+
+            setTimeout(function () {
+                ammu.classList.remove("show");
+            }, 700);
+        });
+    </script>
 
 </body>
 </html>
